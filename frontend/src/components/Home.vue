@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+import { api } from '../factories/factory-api.js'
 
 defineProps({
   title: {
@@ -49,7 +50,7 @@ const handleClientSubmit = async () => {
 
 const handleProjectSubmit = async () => {
    try {
-    const response = await axios.post("http://localhost:8080/api/projetos",{
+    const response = await api.post(`/projetos`,{
         clientId: clientId.value,
         name: nameProject.value,
         description: description.value,
@@ -68,7 +69,7 @@ const handleProjectSubmit = async () => {
 
 const getClients = async () => {
    try {
-    const response = await axios.get('http://localhost:8080/api/clientes')
+    const response = await api.get(`/clientes`)
     clients.value = response.data
   } catch (error) {
     console.error('Erro ao buscar clientes:', error)

@@ -2,6 +2,7 @@
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
 import { Menu } from 'lucide-vue-next'
+import { api } from '../factories/factory-api'
 
 const props = defineProps({
   title: {
@@ -20,9 +21,8 @@ const isModalOpen = ref(false)
 const selectedProject = ref(null)
 
 const fetchProjects = async () => {
-  const url = "http://localhost:8080/api/projetos"
   try {
-    const response = await axios.get(url)
+    const response = await api.get(`/projetos`)
     projects.value = response.data
   } catch (error) {
     console.error('Erro ao buscar dados da API:', error)
@@ -30,9 +30,8 @@ const fetchProjects = async () => {
 }
 
 const handleSubmitActivity = async () => {
-  const url = `http://localhost:8080/api/projetos/${projectId.value}/atividades`
   try {
-     const response = await axios.post(url,{
+     const response = await api.post(`/projetos/${projectId.value}/atividades`,{
         name: nameActivity.value,
         description: descriptionActivity.value,
     })
