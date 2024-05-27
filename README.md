@@ -30,4 +30,4 @@ O frontend Vue.js estará disponível em `http://localhost:5173`.
 
 ## Class Diagram 
 
-![Web 1]([https://github.com/valdirsillva/platform-manager-project-software/blob/main/diagram/diagram.png](https://github.com/valdirsillva/platform-manager-project-software/blob/main/diagram.png))
+![Web 1](https://github.com/valdirsillva/platform-manager-project-software/blob/main/diagram.png)
