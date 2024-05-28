@@ -161,7 +161,7 @@ onMounted(() => {
                     className="peer w-full h-full bg-transparent text-white font-sans font-medium outline outline-0 focus:outline-0 transition-all placeholder-shown:border placeholder-shown:border-purple-500 placeholder-shown:border-t-purple-500 border focus:border-2  focus:border-t-transparent text-md px-3 py-3 rounded-[7px] border-purple-500 focus:border-purple-500"
                     placeholder=" "
                     type="text"
-                  
+                    disabled
                     v-model="projectId.id"
                   />
               </div>
