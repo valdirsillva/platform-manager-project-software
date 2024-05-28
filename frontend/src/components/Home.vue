@@ -29,7 +29,7 @@ const closeModalProject = () => isModalProjectOpen.value = false;
 
 const handleClientSubmit = async () => {
    try {
-    const response = await axios.post("http://localhost:8080/api/clientes",{
+    const response = await api.post("/clientes",{
         name: name.value,
         phoneNumber: phoneNumber.value,
         email: email.value
@@ -100,7 +100,7 @@ onMounted(() => {
     <div className="flex flex-col gap-5 bg-[#121218] p-6 rounded shadow-lg max-w-10/8 h-auto">
       <h2 className="text-2xl font-medium mb-4">Cadastrar cliente</h2>
         <div className="flex flex-col gap-5">
-           <form method="POST" @submit.prevent="handleClientSubmit">
+           <form method="POST" @submit.prevent="handleClientSubmit()">
               <div class="relative w-full min-w-[400px] mb-10 ">
                <input
                   className="peer w-full h-full bg-transparent text-white font-sans font-medium outline outline-0 focus:outline-0 disabled:bg-purple-500 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-purple-500 placeholder-shown:border-t-purple-500 border focus:border-2 border-t-transparent focus:border-t-transparent text-md px-3 py-3 rounded-[7px] border-purple-500 focus:border-purple-500"
@@ -142,7 +142,7 @@ onMounted(() => {
 
             <div class="w-full flex gap-4 mt-8">
               <button type="submit" class="w-5/12 mt-4 px-4 py-2 bg-[#41ec63] text-white rounded"
-              @click="handleClientSubmit"
+
               >
                 SALVAR
               </button>
@@ -161,7 +161,7 @@ onMounted(() => {
     <div className="flex flex-col gap-5 bg-[#121218] p-6 rounded shadow-lg max-w-10/8 h-auto">
       <h2 className="text-2xl font-medium mb-4">Cadastrar projeto</h2>
         <div className="flex flex-col gap-5">
-           <form method="POST" @submit.prevent="handleProjectSubmit">
+           <form method="POST" @submit.prevent="handleProjectSubmit()">
              <div class="relative w-full min-w-[400px] mb-10 ">
                <select v-model="clientId" class="peer w-full h-full bg-transparent selected:text-white  font-sans font-medium outline outline-0 focus:outline-0 disabled:bg-purple-500 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-purple-500 placeholder-shown:border-t-purple-500 border focus:border-2 text-md px-3 py-3 rounded-[7px] border-purple-500 focus:border-purple-500">
                     <option className="text-gray-900" v-for="client in clients" :key="client.id" :value="client.id">{{ client.name }}</option>
@@ -195,7 +195,7 @@ onMounted(() => {
 
             <div class="w-full flex gap-4 mt-8">
               <button type="submit" class="w-5/12 mt-4 px-4 py-2 bg-[#41ec63] text-white rounded"
-              @click="handleProjectSubmit"
+            
               >
                 SALVAR
               </button>
