@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
 import { api } from '../factories/factory-api.js'
 
 defineProps({
@@ -164,8 +163,8 @@ onMounted(() => {
         <div className="flex flex-col gap-5">
            <form method="POST" @submit.prevent="handleProjectSubmit">
              <div class="relative w-full min-w-[400px] mb-10 ">
-               <select v-model="clientId" class="peer w-full h-full bg-transparent text-black font-sans font-medium outline outline-0 focus:outline-0 disabled:bg-purple-500 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-purple-500 placeholder-shown:border-t-purple-500 border focus:border-2 border-t-transparent focus:border-t-transparent text-md px-3 py-3 rounded-[7px] border-purple-500 focus:border-purple-500">
-                    <option v-for="client in clients" :key="client.id" :value="client.id">{{ client.name }}</option>
+               <select v-model="clientId" class="peer w-full h-full bg-transparent selected:text-white  font-sans font-medium outline outline-0 focus:outline-0 disabled:bg-purple-500 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-purple-500 placeholder-shown:border-t-purple-500 border focus:border-2 text-md px-3 py-3 rounded-[7px] border-purple-500 focus:border-purple-500">
+                    <option className="text-gray-900" v-for="client in clients" :key="client.id" :value="client.id">{{ client.name }}</option>
                 </select>
             </div>
 
