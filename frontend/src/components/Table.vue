@@ -105,7 +105,6 @@ onMounted(() => {
                 />
               </button>
             </td>
-
             <td className="whitespace-nowrap px-6 py-4 ">
               <button type="button" role="button" @click="openModalCreateActivity(project)">
                 <SquarePen
@@ -121,7 +120,7 @@ onMounted(() => {
   </div>
 
   <div v-if="isModalOpen" className="fixed inset-0 z-10 flex items-center justify-center bg-opacity-50">
-    <div className="flex flex-col gap-5 bg-[#121218] p-6 rounded shadow-lg w-10/8 h-auto">
+    <div className="flex flex-col gap-5 bg-[#121218] p-6 rounded shadow-lg w-5/12 h-auto">
       <h2 className="text-2xl font-medium mb-4">Detalhes do Projeto</h2>
         <div className="flex flex-col">
           <ul className="flex flex-col gap-2">
@@ -132,25 +131,32 @@ onMounted(() => {
           </ul>
         </div>
         <!-- Carregar lista de atividades aqui abaixo -->
-        <div className="flex flex-col mt-5">
+        <div className="flex flex-col mt-5 ">
           <h2 className="text-2xl font-medium mb-4">Lista de Atividades</h2>
-            <ul className="flex flex-col gap-2">
-              <li v-for="activity in selectedProject.activities" :key="activity.id">
-                <p>
-                  <strong> {{ activity.name }} - </strong> {{ activity.description }} <br/>
-                  <strong> Data criação: - </strong> {{ formatDataISOInPtBr(activity.dataInitial) }} 
-                </p>
-              </li>
-            </ul>
+            <div className="flex flex-col gap-2" 
+              v-for="activity in selectedProject.activities" :key="activity.id">
+              <div className="flex items-center mt-2 px-4 py-2 border border-gray-200 rounded dark:border-gray-700" >
+                 <input 
+                    id="bordered-checkbox-1" 
+                    type="checkbox"
+                    value="" 
+                    name="bordered-checkbox" 
+                    class="w-4 h-4 text-purple-800 bg-gray-100 border-gray-300 rounded focus:ring-purple-900 dark:focus:purple-900 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  >
+                  <label 
+                    for="bordered-checkbox-1" 
+                    class="w-full ms-2 text-sm font-thin dark:text-white ">
+                    {{ activity.description }}
+                  </label>
+              </div> 
+            </div>
           </div>
-
-      <button @click="closeModal" className="w-20 mt-4 px-4 py-2 bg-rose-600 text-white rounded">
+        <button @click="closeModal" className="w-20 mt-4 px-4 py-2 bg-rose-600 text-white rounded">
             Fechar
       </button>
     </div>
   </div>
 
-  
   <div v-if="isModalActivitOpen" className="fixed inset-0 z-10 flex items-center justify-center bg-opacity-50">
     <div className="flex flex-col gap-5 bg-[#121218] p-6 rounded shadow-lg max-w-10/8 h-auto">
       <h2 className="text-2xl font-medium mb-6">Adicionar nova atividade</h2>
@@ -203,8 +209,5 @@ onMounted(() => {
         </div>
        </div> 
     </div>  
-
-
-
 </template>
 
