@@ -25,7 +25,7 @@ O frontend Vue.js estará disponível em `http://localhost:5173`.
     ```
 2. Compile e execute a aplicação Spring Boot:
     ```bash
-    ./mvnw spring-boot:run
+    .\mvnw spring-boot:run -e
     ```
 
 ## Class Diagram 
