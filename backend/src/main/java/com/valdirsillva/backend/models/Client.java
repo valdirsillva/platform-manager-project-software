@@ -1,5 +1,6 @@
 package com.valdirsillva.backend.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -21,7 +22,8 @@ import lombok.Data;
 @Entity(name = "cliente")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Client {
+public class Client implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

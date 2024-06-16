@@ -1,5 +1,6 @@
 package com.valdirsillva.backend.models;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -20,7 +21,9 @@ import lombok.Data;
 @Entity(name = "atividade")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Activity {
+public class Activity implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
