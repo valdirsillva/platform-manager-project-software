@@ -21,8 +21,13 @@ import com.valdirsillva.backend.services.ActivityService;
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:5173")
 public class ActivityController {
-    @Autowired
+
     private ActivityService activityService;
+
+    @Autowired
+    public ActivityController(ActivityService activityService) {
+        this.activityService = activityService;
+    }
 
     @GetMapping("/atividades")
     public ResponseEntity<List<Activity>> list() {

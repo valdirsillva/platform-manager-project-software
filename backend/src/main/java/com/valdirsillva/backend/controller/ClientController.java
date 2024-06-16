@@ -19,8 +19,13 @@ import com.valdirsillva.backend.services.ClientService;
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:5173")
 public class ClientController {
-    @Autowired
+
     private ClientService clientService;
+
+    @Autowired
+    public ClientController(ClientService clientService) {
+        this.clientService = clientService;
+    }
 
     @GetMapping("/clientes")
     public ResponseEntity<List<Client>> list() {

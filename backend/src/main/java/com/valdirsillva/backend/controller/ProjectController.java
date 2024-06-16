@@ -20,8 +20,12 @@ import com.valdirsillva.backend.services.ProjectService;
 @CrossOrigin(origins = "http://localhost:5173")
 public class ProjectController {
 
-    @Autowired
     private ProjectService projectService;
+
+    @Autowired
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
+    }
 
     @GetMapping("/projetos")
     public ResponseEntity<?> findAll() {
