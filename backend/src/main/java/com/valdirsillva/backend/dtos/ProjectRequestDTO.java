@@ -14,6 +14,7 @@ public record ProjectRequestDTO(
         LocalDateTime dataInitial,
         LocalDateTime dataEnd,
         UUID clientId,
+        UUID teamId,
         List<Activity> activities
 
 ) {
